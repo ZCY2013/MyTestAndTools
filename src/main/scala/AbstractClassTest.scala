@@ -1,11 +1,12 @@
 import java.io.PrintWriter
 
 trait Logger{
+  println("init Logger")
   def log(msg:String):Unit
 }
 
 trait FileLogger extends Logger{
-
+  println("FileLogger")
   //增加了抽象成员变量
   val fileName:String
   //将抽象成员变量作为PrintWriter参数
@@ -18,7 +19,9 @@ trait FileLogger extends Logger{
   }
 }
 
-class Person
+class Person{
+  println("init Person")
+}
 class Student extends Person with FileLogger{
   println("init student")
   //Student类对FileLogger中的抽象字段进行重写
@@ -33,5 +36,5 @@ object TraitDemo{
 
 /**
   *class initial order:
-  *
+  * Person -> Logger -> FileLogger -> Student
   */
