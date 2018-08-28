@@ -9,7 +9,8 @@ public class MessageEngineAgent {
     public void start() {
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
         try{
-            ObjectName mxbeanName = new ObjectName("com.example:type=MessageEngine");
+            MessageEngine me = new MessageEngine();
+            ObjectName mxbeanName = new ObjectName(me.getClass() + "=MessageEngine");
             MessageEngineMXBean mxbean = new MessageEngine();
             mbs.registerMBean(mxbean, mxbeanName);
         } catch (Exception e) {
