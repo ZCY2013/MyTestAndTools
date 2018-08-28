@@ -1,24 +1,24 @@
 package JMX.StanderdMBean;
-
-public class Hello implements HelloMBean {
+public class Hello{
+//public class Hello implements HelloMBean {
     private String name;
 
-    @Override
+//    @Override
     public String getName(){
         return name;
     }
 
-    @Override
+//    @Override
     public void setName(String name) {
         this.name = name;
     }
 
-    @Override
+//    @Override
     public void printHello() {
         System.out.println("hello world," + name);
     }
 
-    @Override
+//    @Override
     public void printHello(String str) {
         System.out.println("hello " + str);
     }
