@@ -32,8 +32,8 @@ public class ModelMBeanUtils {
         portAttrDesc.setField("name","Name");
         portAttrDesc.setField("descriptorType", "attribute");
         portAttrDesc.setField("displayName", "Name");
-        portAttrDesc.setField("getMethod", "getName");
-        portAttrDesc.setField("setMethod", "setName");
+        portAttrDesc.setField("getMethod", "getName"); //"getName22" will cause ServiceNotFoundException
+        portAttrDesc.setField("setMethod", "setName"); //this match the object's method & attribute
         ModelMBeanAttributeInfo nameAttrInfo = new ModelMBeanAttributeInfo(
                 "Name",
                 STRING_CLASS,
@@ -46,7 +46,7 @@ public class ModelMBeanUtils {
         Descriptor getStateDesc = new DescriptorSupport(new String[] {
                 "name=getName",
                 "descriptorType=operation",
-                "class=com.test.jmx.modelBean.Hello",
+                "class=JMX.StanderdMBean.Hello",
                 "role=operation"
         });
 
@@ -55,12 +55,12 @@ public class ModelMBeanUtils {
                 "get name attribute", //
                 null, //
                 "java.lang.String", //
-                MBeanOperationInfo.ACTION, //
-                getStateDesc //
+                MBeanOperationInfo.ACTION,
+                getStateDesc //if null  there is a default value ,but error will caused exception
         );
         //construct description info
         Descriptor setStateDesc = new DescriptorSupport(new String[] {
-                "name=setName", "descriptorType=operation", "class=com.test.jmx.modelBean.Hello",
+                "name=setName", "descriptorType=operation", "class=JMX.StanderdMBean.Hello",
                 "role=operation" });
 
         MBeanParameterInfo[] setStateParms = new MBeanParameterInfo[] { (new MBeanParameterInfo(
@@ -72,7 +72,7 @@ public class ModelMBeanUtils {
                 setStateParms, //
                 "void", //
                 MBeanOperationInfo.ACTION, //
-                setStateDesc //
+               setStateDesc
         );
         //construct hello infomation
         ModelMBeanOperationInfo print1Info = new ModelMBeanOperationInfo(//
@@ -98,7 +98,7 @@ public class ModelMBeanUtils {
         //submit
         ModelMBeanInfo mbeanInfo = new ModelMBeanInfoSupport(//
                 RequiredModelMBean.class.getName(), // MBean类
-                null, // 描述文字
+                "mbeanINfo description", // 描述文字
                 new ModelMBeanAttributeInfo[] { // 所有的属性信息（数组）
                         nameAttrInfo },//只有一个属性
                 null, // 所有的构造函数信息
