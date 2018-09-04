@@ -12,8 +12,8 @@ object OptionParserTest {
 //    System.err.println("USAGE: java [options] %s server.properties [--override property=value]*".format("KafkaServer"))
     optionParser.printHelpOn(System.err)
     val options = optionParser.parse(args.slice(1, args.length): _*)
-    print(args.length)
-    System.nanoTime();
+//    print(args.length)
+//    System.nanoTime();
     print(options.nonOptionArguments())
 //    println("server:" map unwrapArg :_*)
 //    print(java.lang.String.format("1 %s 2 %s 3 %s 4 %s 5%s 6 %s 7%s ", "server:" map unwrapArg:_*))

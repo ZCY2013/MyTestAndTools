@@ -1,8 +1,8 @@
 object TestObject {
 //  private val str = new TestObject("asd")
-  print("hello object")
+//  print("hello object")
   def run(): Unit ={
-    print("function run!")
+//    print("function run!")
   }
 }
 //class TestObject{
