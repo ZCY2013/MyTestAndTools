@@ -23,4 +23,7 @@ b.mkString(",")
 
 val numItermPartern = "([0-9]+) ([a-z]+)".r
 val src2 = "10 cups, 20 cups"
-for(m <- numItermPartern.findAllMatchIn(src2)) println(m.group(1 + "/" + m.group(2)))
+for(m <- numItermPartern.findAllMatchIn(src2)) println(m.group(1 )+ "/" + m.group(2))
+
+val timePattern = ".*(2017):([0-9]{2}).*".r
+val timePattern(year, hour) = "b2017:00:00:46 +0800"
