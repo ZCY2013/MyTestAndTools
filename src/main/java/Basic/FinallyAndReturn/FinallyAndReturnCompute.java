@@ -39,7 +39,7 @@ public class FinallyAndReturnCompute {
             return i--;
         }finally {
             System.out.println("i in finally block from try-catch block is : " + i);//8
-            return i--;//7
+            return --i;//7 real return
         }
     }
 
@@ -47,11 +47,12 @@ public class FinallyAndReturnCompute {
         int i = 10;
         try{
             System.out.println("i in try block is : " + i);
-            return --i;
+            return i--;
         }catch(Exception e){
             i--;
             System.out.println("i in catch block from try block is : " + i);
-            return --i;
+            --i;
+            return i;
         }finally {
             System.out.println("i in finally from try or catch block is : " + i);
             i--;
