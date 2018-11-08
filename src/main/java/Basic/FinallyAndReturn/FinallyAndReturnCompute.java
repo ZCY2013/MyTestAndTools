@@ -47,7 +47,7 @@ public class FinallyAndReturnCompute {
         int i = 10;
         try{
             System.out.println("i in try block is : " + i);
-            return i--;
+            return --i; //real return  copy
         }catch(Exception e){
             i--;
             System.out.println("i in catch block from try block is : " + i);
